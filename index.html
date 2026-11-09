@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Password Generator</title>
+  <meta name="description" content="Create strong random passwords and passphrases in your browser. Nothing is stored or sent anywhere.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>Password Generator</h1>
+      <p>Create strong random passwords and passphrases. They are made in your browser with its secure random number generator, and nothing is stored or sent anywhere.</p>
+    </header>
+
+    <div class="seg" role="group" aria-label="What to generate">
+      <button id="modePassword" type="button" aria-pressed="true">Password</button>
+      <button id="modePassphrase" type="button" aria-pressed="false">Passphrase</button>
+    </div>
+
+    <section class="panel result" aria-label="Result">
+      <div id="output" class="output" tabindex="0" aria-label="Generated password"></div>
+
+      <div class="actions">
+        <button id="generate" class="btn" type="button">Generate new</button>
+        <button id="copy" class="ghost" type="button">Copy</button>
+        <button id="toggle" class="ghost" type="button" aria-pressed="false">Hide</button>
+        <span id="copyNote" class="copy-note" role="status" aria-live="polite"></span>
+      </div>
+
+      <div class="strength">
+        <div class="meter" aria-hidden="true"><span id="meterFill"></span></div>
+        <p class="strength-text">
+          <strong id="strengthLabel">Strong</strong>
+          <span id="bits"></span>
+        </p>
+        <p id="crack" class="hint"></p>
+      </div>
+    </section>
+
+    <section class="panel opts" aria-label="Options">
+      <div id="passwordOpts" class="group">
+        <label class="col" for="length">
+          <span class="row">Length <output id="lengthOut" for="length">20</output></span>
+          <span class="len">
+            <input type="range" id="length" min="8" max="64" value="20">
+            <input type="number" id="lengthNum" min="8" max="64" value="20" aria-label="Length as a number">
+          </span>
+        </label>
+
+        <div class="checks">
+          <label class="check" for="upper"><input type="checkbox" id="upper" checked> Uppercase <span class="eg">A–Z</span></label>
+          <label class="check" for="lower"><input type="checkbox" id="lower" checked> Lowercase <span class="eg">a–z</span></label>
+          <label class="check" for="digits"><input type="checkbox" id="digits" checked> Numbers <span class="eg">0–9</span></label>
+          <label class="check" for="symbols"><input type="checkbox" id="symbols" checked> Symbols</label>
+        </div>
+
+        <label class="col" for="symbolChars">Symbols to use
+          <input type="text" id="symbolChars" value="!@#$%^&*-_+=?" autocomplete="off" spellcheck="false">
+        </label>
+
+        <label class="check" for="ambiguous"><input type="checkbox" id="ambiguous"> Leave out look-alike characters <span class="eg">I l 1 O 0</span></label>
+        <p id="optsNote" class="hint err" role="alert" hidden></p>
+      </div>
+
+      <div id="passphraseOpts" class="group" hidden>
+        <label class="col" for="words">
+          <span class="row">Words <output id="wordsOut" for="words">5</output></span>
+          <input type="range" id="words" min="3" max="10" value="5">
+        </label>
+
+        <div class="two">
+          <label class="col" for="sep">Separator
+            <select id="sep">
+              <option value="-">Hyphen ( - )</option>
+              <option value=" ">Space</option>
+              <option value=".">Dot ( . )</option>
+              <option value="_">Underscore ( _ )</option>
+              <option value="">None</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="checks">
+          <label class="check" for="cap"><input type="checkbox" id="cap" checked> Capitalize words</label>
+          <label class="check" for="num"><input type="checkbox" id="num" checked> Add a number at the end</label>
+        </div>
+        <p id="wordlistNote" class="hint"></p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      Tip: use a different password for every account and keep them in a password manager.
+    </footer>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
