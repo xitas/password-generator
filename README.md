@@ -2,6 +2,8 @@
 
 A password and passphrase generator built with plain HTML, CSS and JavaScript. No frameworks, no build step, and nothing leaves your browser.
 
+**Live demo:** [https://xitas.github.io/password-generator/](https://xitas.github.io/password-generator/)
+
 ## Features
 
 - **Two modes:** random passwords and word-based passphrases
@@ -26,7 +28,7 @@ A password and passphrase generator built with plain HTML, CSS and JavaScript. N
 
 ## Getting started
 
-No installation needed.
+No installation needed. You can use the [live demo](https://xitas.github.io/password-generator/) or run it locally.
 
 1. Clone the repository:
    ```bash
